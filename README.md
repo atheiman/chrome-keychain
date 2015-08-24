@@ -1,12 +1,11 @@
 # G-Chain
 
-> A password manager packaged as a
-> [Chrome App](https://developer.chrome.com/apps/about_apps). G-Chain stores
-> all your passwords
-> [securely encrypted](https://github.com/digitalbazaar/forge) in your Google
-> Drive account using the
-> [Drive REST API](https://developers.google.com/drive/web/about-sdk).
-> Passwords are only retrieved and updated using secure HTTPS connections.
+A password manager packaged as a
+[Chrome App](https://developer.chrome.com/apps/about_apps). G-Chain stores all
+your passwords [securely encrypted](https://github.com/digitalbazaar/forge) in
+your Google Drive account using the
+[Drive REST API](https://developers.google.com/drive/web/about-sdk). Passwords
+are only retrieved and updated using secure HTTPS connections.
 
 ## How it works
 
@@ -25,7 +24,7 @@
 - Passwords are stored securely in a location only you can access and can only
   be decrypted with the master password only you know
 
-- Match sites with 
+- Match sites with
   [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), so
   you can have one saved password for `app1.example.com` and `app2.example.com`
 
@@ -37,21 +36,23 @@
 
 ## Development Roadmap
 
-- [ ] Chrome App skeleton to display sites
+- [ ] *Version 1.0*
 
-- [ ] Store and retrieve encrypted passwords locally
-
-- [ ] Notify when browser path matches a saved site
-
-- [ ] Generate secure passwords
-
-- [ ] Store passwords in user's Google Drive
-      ["Application Data folder"](https://developers.google.com/drive/web/appdata)
-
-- [ ] Search for passwords using hotkey at anytime
-
-- [ ] Version 1.0
-
-- [ ] Android app skeleton to display sites
-
-- [ ] Android app stores and retrieves encrypted passwords locally
+  - [ ] Chrome App skeleton to display sites
+  
+  - [ ] Store and retrieve encrypted passwords locally
+  
+  - [ ] Notify when browser path matches a saved site
+  
+  - [ ] Generate secure passwords
+  
+  - [ ] Store passwords in user's Google Drive
+    ["Application Data folder"](https://developers.google.com/drive/web/appdata)
+  
+  - [ ] Search for passwords using hotkey at anytime
+  
+- [ ] *Future plans*
+  
+  - [ ] Android app skeleton to display sites
+  
+  - [ ] Android app stores and retrieves encrypted passwords locally
