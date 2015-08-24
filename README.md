@@ -1,15 +1,19 @@
 # G-Chain
 
 A password manager packaged as a
-[Chrome App](https://developer.chrome.com/apps/about_apps). G-Chain stores all
-your passwords [securely encrypted](https://github.com/digitalbazaar/forge) in
+[Chrome Extension](https://developer.chrome.com/extensions) and a
+[Chrome App](https://developer.chrome.com/apps/about_apps). G-Chain stores your
+passwords, [securely encrypted](https://github.com/digitalbazaar/forge), in
 your Google Drive account using the
 [Drive REST API](https://developers.google.com/drive/web/about-sdk). Passwords
 are only retrieved and updated using secure HTTPS connections.
 
+G-Chain is a Chrome *Extension* and a Chrome *App*. The extension does almost
+all of the work, the only role of the app is the quick search feature.
+
 ## How it works
 
-1. Install the Chrome App
+1. Install the G-Chain Chrome Extension
 
 1. Create a master password to encrypt your passwords. Only you will know your
    master password (*do not lose this!*)
@@ -19,40 +23,50 @@ are only retrieved and updated using secure HTTPS connections.
 1. When you visit a site you have saved a password for, click the extension
    icon to fill the login form with your password
 
+1. Install the Chrome App to create a hotkey for quickly searching and copying
+   stored passwords from your desktop
+
 ## Key Features
 
 - Passwords are stored securely in a location only you can access and can only
   be decrypted with the master password only you know
 
-- Match sites with
-  [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), so
-  you can have one saved password for `app1.example.com` and `app2.example.com`
+- Match sites using simple strings,
+  [glob matching](https://github.com/isaacs/minimatch), or even
+  [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) so you
+  only need one saved site for `app1.example.com` and `app2.example.com`
 
 - Train your G-Chain to automatically login to sites
 
-- Quickly search for passwords in the app with a user-defined hotkey
+- Quickly search for passwords from your desktop with a user-defined hotkey
 
 - Generate secure passwords
 
 ## Development Roadmap
 
-- [ ] *Version 1.0*
+- [ ] **Version 1.0**
 
-  - [ ] Chrome App skeleton to display sites
-  
+  - [ ] Chrome Extension skeleton to display sites
+
   - [ ] Store and retrieve encrypted passwords locally
-  
+
   - [ ] Notify when browser path matches a saved site
-  
+
+  - [ ] Context menu to paste matching sites' passwords
+
   - [ ] Generate secure passwords
-  
+
   - [ ] Store passwords in user's Google Drive
     ["Application Data folder"](https://developers.google.com/drive/web/appdata)
-  
-  - [ ] Search for passwords using hotkey at anytime
-  
-- [ ] *Future plans*
-  
+
+  - [ ] Chrome App skeleton for quick search
+
+  - [ ] Search for passwords in Chrome App using hotkey at anytime
+
+- [ ] **Future plans**
+
+  - [ ] Automatically login to saved sites
+
   - [ ] Android app skeleton to display sites
-  
+
   - [ ] Android app stores and retrieves encrypted passwords locally

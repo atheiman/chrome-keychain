@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "G-Chain",
+  "description": "Password manager that securely stores your passwords in your Google Drive account.",
+  "version": "0.1",
+  "author": "Austin Heiman",
+
+  "permissions": [
+    "contextMenus",
+    "activeTab"
+  ],
+
+  "icons": {
+    "16": "images/g-chain-16.png",
+    "48": "images/g-chain-48.png",
+    "128": "images/g-chain-128.png"
+  },
+
+  "background": {
+    "scripts": ["event.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ]
+}
