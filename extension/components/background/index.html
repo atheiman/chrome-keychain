@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <link rel="shortcut icon" href="/assets/img/keychain-128.png" sizes="128x128">
+
+    <title>Chrome Keychain</title>
+  </head>
+
+  <body ng-app="keychain">
+    <header class="container">
+      <h1>Chrome Keychain</h1>
+    </header>
+
+    <div class="container-fluid" ng-controller="SitesCtrl">
+      <h2>Sites</h2>
+
+      <table class="table table-hover table-bordered">
+        <tr>
+          <th>Site</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+
+        <tr ng-repeat="site in sites">
+          <td><input type="text" ng-model="site.visibleName" /></td>
+          <td><input type="text" ng-model="site.username" /></td>
+          <td><input type="password" ng-model="site.password" /></td>
+          <td><textarea ng-model="site.notes"></textarea></td>
+          <td><a class="glyphicon glyphicon-trash red"></a></td>
+        </tr>
+      </table>
+    </div> <!-- /.container -->
+
+    <script src="/assets/bower_components/angular/angular.min.js"></script>
+    <script src="background.js"></script>
+  </body>
+</html>

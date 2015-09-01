@@ -1,0 +1,13 @@
+{
+  "name": "chrome-keychain",
+  "version": "0.1.0",
+  "homepage": "https://github.com/atheiman/chrome-keychain",
+  "authors": [
+    "Austin Heiman <atheimanksu@gmail.com>"
+  ],
+  "description": "Chrome Keychain password manager Chrome extension",
+  "dependencies": {
+    "angular": "^1.4.x",
+    "bootstrap": "^3.3.x"
+  }
+}

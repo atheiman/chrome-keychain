@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "name": "chrome-keychain",
+  "description": "Chrome Keychain password manager Chrome extension",
+  "repository": "https://github.com/atheiman/chrome-keychain",
+  "license": "MIT"
+}
