@@ -27,7 +27,7 @@
 
   "author": "Austin Heiman <atheimanksu@gmail.com>",
   "background": {    // https://developer.chrome.com/extensions/event_pages
-    "scripts": ["/components/background/index.html"],
+    "page": "/components/background/index.html",
     "persistent": false
   },
   // "commands": {

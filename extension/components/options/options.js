@@ -11,4 +11,5 @@
   //     $scope.sites = payload.data;
   //   })
   // }])
-;})();
+  ;
+})();
