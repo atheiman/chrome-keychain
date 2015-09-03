@@ -1,5 +1,4 @@
 (function() {
-  console.log('loading popup module');
   angular.module('popup', ['commonServices'])
 
   .controller('SitesCtrl', ['$scope', 'getSites', function($scope, getSites) {
@@ -9,7 +8,6 @@
     });
 
     $scope.openBackground = function() {
-      console.log('opening background');
       chrome.tabs.create({"url": "/components/background/index.html"});
     };
   }])

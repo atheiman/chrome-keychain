@@ -63,7 +63,12 @@
   // ],
   "content_security_policy": "script-src 'self'; object-src 'self'", // https://developer.chrome.com/extensions/contentSecurityPolicy
   "homepage_url": "https://github.com/atheiman/chrome-keychain",
-  // "oauth2": ...,    // https://developer.chrome.com/apps/app_identity
+  // "oauth2": {    // // https://developer.chrome.com/apps/app_identity
+  //   "client_id": "665859454684.apps.googleusercontent.com",
+  //   "scopes": [
+  //     "https://www.googleapis.com/auth/drive"
+  //   ]
+  // },
   "offline_enabled": true,
   // "omnibox": {
   //   "keyword": "keychain"
@@ -72,8 +77,15 @@
   "options_ui": {    // https://developer.chrome.com/extensions/optionsV2
     "chrome_style": true,
     "page": "/components/options/options.html"
-  }
-  // "permissions": ["tabs"],    // // https://developer.chrome.com/extensions/permissions
+  },
+  "permissions": [    // https://developer.chrome.com/extensions/permissions
+    "tabs",
+    "https://docs.google.com/feeds/",
+    "https://docs.googleusercontent.com/",
+    "https://spreadsheets.google.com/feeds/",
+    "https://ssl.gstatic.com/",
+    "https://www.googleapis.com/"
+  ]
   // "storage": {    // https://developer.chrome.com/extensions/manifest/storage
   //   "managed_schema": "schema.json"
   // },

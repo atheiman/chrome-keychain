@@ -10,13 +10,13 @@
 
   <body ng-app="popup">
     <header class="container">
-      <h1>Chrome Keychain Popup</h1>
+      <h3>Chrome Keychain</h3>
     </header>
 
-    <p>Chrome Keychain Popup placeholder text</p>
-
-    <!-- Open Background Index: https://developer.chrome.com/extensions/tabs#method-create -->
-    <p><button ng-click="openBackground()">Background Index</button></p>
+    <div class="container-fluid" ng-controller="SitesCtrl">
+      <p><a class="btn btn-primary"
+            ng-click="openBackground()">{{sites.length}} Sites >></a></p>
+    </div>
 
     <script src="/assets/bower_components/angular/angular.min.js"></script>
     <script src="/assets/js/services.js"></script>

@@ -1,9 +1,5 @@
 (function() {
-  angular.module('keychain', [])
-
-  .factory('getSites', ['$http', function($http) {
-    return $http.get('fake-sites.json');
-  }])
+  angular.module('keychain', ['commonServices'])
 
   .controller('SitesCtrl', ['$scope', 'getSites', function($scope, getSites) {
     var promise = getSites;
