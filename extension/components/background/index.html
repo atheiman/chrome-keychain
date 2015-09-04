@@ -17,6 +17,15 @@
       <h1>Chrome Keychain</h1>
     </header>
 
+    <div class="container-fluid" ng-controller="GDriveCtrl">
+      <h2>Drive API Test</h2>
+
+      <p><button class="btn btn-default" ng-click="getAppFolder()">Get 'appfolder' Metadata</button></p>
+
+      <textarea>{{appfolder}}</textarea>
+
+    </div>
+
     <div class="container-fluid" ng-controller="SitesCtrl">
       <h2>Sites</h2>
 

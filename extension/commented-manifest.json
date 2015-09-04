@@ -1,0 +1,101 @@
+{
+  "manifest_version": 2,
+  "name": "Chrome Keychain",
+  "version": "0.1.0",
+  "version_name": "dev",
+
+  "description": "Store your securely encrypted passwords locally or in a Cloud Storage account.",
+  "icons": {
+      "16": "/assets/img/keychain-16.png",
+      "19": "/assets/img/keychain-19.png",
+      "38": "/assets/img/keychain-38.png",
+      "48": "/assets/img/keychain-48.png",
+      "128": "/assets/img/keychain-128.png"
+    },
+
+  "browser_action": {
+    "default_icon": {
+      "16": "/assets/img/keychain-16.png",
+      "19": "/assets/img/keychain-19.png",
+      "38": "/assets/img/keychain-38.png",
+      "48": "/assets/img/keychain-48.png",
+      "128": "/assets/img/keychain-128.png"
+    },
+    "default_title": "Chrome Keychain",
+    "default_popup": "/components/popup/popup.html"
+  },
+
+  "author": "Austin Heiman <atheimanksu@gmail.com>",
+  "background": {    // https://developer.chrome.com/extensions/event_pages
+    "page": "/components/background/index.html",
+    "persistent": false
+  },
+  // "commands": {
+  //   "toggle-feature-foo": {
+  //     "suggested_key": {
+  //       "default": "Ctrl+Shift+Y",
+  //       "mac": "Command+Shift+Y"
+  //     },
+  //     "description": "Toggle feature foo"
+  //   },
+  //   "_execute_browser_action": {
+  //     "suggested_key": {
+  //       "windows": "Ctrl+Shift+Y",
+  //       "mac": "Command+Shift+Y",
+  //       "chromeos": "Ctrl+Shift+U",
+  //       "linux": "Ctrl+Shift+J"
+  //     }
+  //   },
+  //   "_execute_page_action": {
+  //     "suggested_key": {
+  //       "default": "Ctrl+Shift+E",
+  //       "windows": "Alt+Shift+P",
+  //       "mac": "Alt+Shift+P"
+  //     }
+  //   }
+  // },
+  // "content_scripts": [
+  //   {
+  //     "matches": ["http://www.google.com/*"],
+  //     "css": ["mystyles.css"],
+  //     "js": ["jquery.js", "myscript.js"]
+  //   }
+  // ],
+  "content_security_policy": "script-src 'self'; object-src 'self'", // https://developer.chrome.com/extensions/contentSecurityPolicy
+  "homepage_url": "https://github.com/atheiman/chrome-keychain",
+  // "oauth2": {    // // https://developer.chrome.com/apps/app_identity
+  //   "client_id": "665859454684.apps.googleusercontent.com",
+  //   "scopes": [
+  //     "https://www.googleapis.com/auth/drive"
+  //   ]
+  // },
+  "offline_enabled": true,
+  // "omnibox": {
+  //   "keyword": "keychain"
+  // },
+  // "optional_permissions": ["tabs"],    // https://developer.chrome.com/extensions/permissions
+  "options_ui": {    // https://developer.chrome.com/extensions/optionsV2
+    "chrome_style": true,
+    "page": "/components/options/options.html"
+  },
+  "permissions": [    // https://developer.chrome.com/extensions/permissions
+    "tabs",
+    "identity",
+    "https://docs.google.com/feeds/",
+    "https://docs.googleusercontent.com/",
+    "https://spreadsheets.google.com/feeds/",
+    "https://ssl.gstatic.com/",
+    "https://www.googleapis.com/"
+  ]
+  // "storage": {    // https://developer.chrome.com/extensions/manifest/storage
+  //   "managed_schema": "schema.json"
+  // },
+  // "system_indicator": ...,    // https://www.chromium.org/developers/design-documents/extensions/proposed-changes/apis-under-development/system-indicator-api
+  // "web_accessible_resources": [    // https://developer.chrome.com/extensions/manifest/web_accessible_resources
+  //   "images/*.png",
+  //   "style/double-rainbow.css",
+  //   "script/double-rainbow.js",
+  //   "script/main.js",
+  //   "templates/*"
+  // ]
+}

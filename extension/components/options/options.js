@@ -1,13 +1,13 @@
-(function() {
+(function () {
   angular.module('options', [])
 
-  // .factory('getSites', ['$http', function($http) {
+  // .factory('getSites', ['$http', function ($http) {
   //   return $http.get('fake-sites.json');
   // }])
 
-  // .controller('SitesCtrl', ['$scope', 'getSites', function($scope, getSites) {
+  // .controller('SitesCtrl', ['$scope', 'getSites', function ($scope, getSites) {
   //   var promise = getSites;
-  //   promise.then(function(payload) {
+  //   promise.then(function (payload) {
   //     $scope.sites = payload.data;
   //   })
   // }])
