@@ -34,7 +34,7 @@
   "oauth2": {
     "client_id": "356903706044-nddlfnns17rkccubpmtvgt0jvq1ev8b1.apps.googleusercontent.com",
     "scopes": [
-      "https://www.googleapis.com/auth/drive"
+      "https://www.googleapis.com/auth/drive.appfolder"
     ]
   },
   "offline_enabled": true,
