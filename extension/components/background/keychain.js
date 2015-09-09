@@ -8,17 +8,39 @@
   })
 
   .controller('GDriveCtrl', ['$scope', '$http', function ($scope, $http) {
+    var gDriveBaseURL = 'https://www.googleapis.com/drive/v2/files/'
+    var gDriveUploadURL = 'https://www.googleapis.com/upload/drive/v2/files?uploadType=media'
+    var respError = function (resp) { console.log('error resp received:', resp); };
+
     $scope.getAppFolder = function () {
-      var promise = $http.get('https://www.googleapis.com/drive/v2/files/appfolder');
-      console.log('promise created:', promise);
-      promise.then(function (resp) {
-        console.log('resp received:', resp);
-        $scope.appFolder = resp.data;
-      }, function (resp) {
-        console.log('error resp received:', resp);
-      });
+      var promise = $http.get(gDriveBaseURL + 'appfolder');
+      promise.then(function (resp) { $scope.resp = resp; }, respError);
+    };
+
+    $scope.listAppFolder = function () {
+      var promise = $http.get(gDriveBaseURL + 'appfolder/children');
+      promise.then(function (resp) { $scope.resp = resp; }, respError);
+    };
+
+    $scope.generateAppFolderIds = function () {
+      var promise = $http.get(gDriveBaseURL + 'generateIds?maxResults=1&space=appDataFolder');
+      promise.then(function (resp) { $scope.resp = resp; }, respError);
     }
-    console.log('GDriveCtrl loaded');
+
+    $scope.createDataFile = function () {
+      // get fileId using generateAppFolderIds, then post to create it
+      var body = {'id': fileId};
+      var promise = $http.post(gDriveBaseURL + 'appfolder/children', body);
+      promise.then(function (resp) { $scope.resp = resp; }, respError);
+
+      // // just creates file, need to specify appfolder as parent
+      // var metadata = {'parents': [{'id': 'appfolder'}]};
+      // var body = {'some key': 'some value'};
+      // var promise = $http.post(gDriveUploadURL, body);
+      // promise.then(function (resp) { $scope.resp = resp; }, respError);
+    }
+
+
   }])
 
   // .controller('GDriveCtrl', ['$scope', 'GDriveFile', function ($scope, GDriveFile) {

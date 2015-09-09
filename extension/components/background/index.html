@@ -20,9 +20,23 @@
     <div class="container-fluid" ng-controller="GDriveCtrl">
       <h2>Drive API Test</h2>
 
-      <p><button class="btn btn-default" ng-click="getAppFolder()">Get 'appfolder' Metadata</button></p>
+      <p><button class="btn btn-default" ng-click="getAppFolder()">
+        Get 'appfolder' Metadata
+      </button></p>
 
-      <pre>{{appFolder}}</pre>
+      <p><button class="btn btn-default" ng-click="listAppFolder()">
+        List 'appfolder' Children
+      </button></p>
+
+      <p><button class="btn btn-default" ng-click="generateAppFolderIds()">
+        Generate 'appfolder' Ids
+      </button></p>
+
+      <p><button class="btn btn-default" ng-click="createDataFile()">
+        Create 'appfolder' Data File
+      </button></p>
+
+      <pre>{{resp}}</pre>
 
     </div>
 
@@ -38,7 +52,7 @@
           <th>Actions</th>
         </tr>
 
-        <tr ng-repeat="site in sites">
+        <tr ng-repeat="site in sites | orderBy: 'visibleName'">
           <td><input type="text" ng-model="site.visibleName" /></td>
           <td><input type="text" ng-model="site.username" /></td>
           <td><input type="password" ng-model="site.password" /></td>
