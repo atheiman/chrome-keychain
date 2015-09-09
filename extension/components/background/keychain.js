@@ -22,16 +22,22 @@
       promise.then(function (resp) { $scope.resp = resp; }, respError);
     };
 
-    $scope.generateAppFolderIds = function () {
-      var promise = $http.get(gDriveBaseURL + 'generateIds?maxResults=1&space=appDataFolder');
-      promise.then(function (resp) { $scope.resp = resp; }, respError);
+    var generateAppFolderIds = function () {
+      var url = gDriveBaseURL + 'generateIds?maxResults=1&space=appDataFolder'
+      // return generateId promise
+      return $http.get(url);
     }
 
     $scope.createDataFile = function () {
       // get fileId using generateAppFolderIds, then post to create it
-      var body = {'id': fileId};
-      var promise = $http.post(gDriveBaseURL + 'appfolder/children', body);
-      promise.then(function (resp) { $scope.resp = resp; }, respError);
+      var idsPromise = generateAppFolderIds();
+      idsPromise.then(function (idsResp) {
+        console.log('generateIds resp:', idsResp);
+        console.log('attempting to create app data file with id', idsResp.data.ids[0]);
+        var body = {'parents': [{'id': 'appfolder'}]};
+        var promise = $http.post(gDriveUploadURL, body)
+        promise.then(function (resp) { $scope.resp = resp; }, respError);
+      })
 
       // // just creates file, need to specify appfolder as parent
       // var metadata = {'parents': [{'id': 'appfolder'}]};
