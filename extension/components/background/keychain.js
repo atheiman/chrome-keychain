@@ -15,33 +15,21 @@
       console.log('resp received:', resp);
       $scope.resp = resp;
     };
-    var respError = function (resp) {
+    var respErrorHandler = function (resp) {
       console.log('error resp received:', resp);
     };
 
     $scope.getFileMetadata = function (fileId) {
       fileId = fileId || 'appfolder';
       var promise = $http.get(gDriveBaseURL + fileId);
-      promise.then(simpleRespHandler, respError);
+      promise.then(simpleRespHandler, respErrorHandler);
     }
 
     $scope.listFolder = function (folderId) {
       folderId = folderId || 'appfolder';
       var promise = $http.get(gDriveBaseURL + folderId + '/children');
-      promise.then(simpleRespHandler, respError);
+      promise.then(simpleRespHandler, respErrorHandler);
     };
-
-    var generateAppFolderIds = function () {
-      var url = gDriveBaseURL + 'generateIds?maxResults=1&space=appDataFolder'
-      // return generateId promise
-      return $http.get(url);
-    }
-
-// // Set HTTP header per req
-// // to apply config object to http post: $http.post(url, data, config)
-// $http.get('www.google.com/someapi', {
-//     headers: {'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='}
-// });
 
     $scope.createDataFile = function () {
       var boundary = '-------314159265358979323846';
@@ -73,44 +61,19 @@
       var promise = $http.post(gDriveMultipartUploadURL,
                                multipartRequestBody,
                                config);
-      promise.then(simpleRespHandler, respError);
+      promise.then(simpleRespHandler, respErrorHandler);
+    }
 
-      // // creates file with no title in root drive dir
-      // var idsPromise = generateAppFolderIds();
-      // idsPromise.then(function (idsResp) {
-      //   console.log('generateIds resp:', idsResp);
-      //   var body = {'id': idsResp.data.ids[0],
-      //               'parents': [{'id': 'appfolder'}],
-      //               'title': 'chrome-keychain' + Date.now()};
-      //   var promise = $http.post(gDriveSimpleUploadURL, body)
-      // promise.then(simpleRespHandler, respError);
-      // })
-
-      // // just creates file, need to specify appfolder as parent
-      // var metadata = {'parents': [{'id': 'appfolder'}]};
-      // var body = {'some key': 'some value'};
-      // var promise = $http.post(gDriveSimpleUploadURL, body);
-      // promise.then(function (resp) { $scope.resp = resp; }, respError);
+    $scope.getDataFile = function () {
+      $http.get(gDriveBaseURL + 'appfolder/children').then(
+        function (resp) {
+          var filePromise = $http.get(resp.data.items[0].childLink + '?alt=media');
+          filePromise.then(simpleRespHandler, respErrorHandler);
+        },
+        respErrorHandler
+      )
     }
   }])
-
-  // .controller('GDriveCtrl', ['$scope', 'GDriveFile', function ($scope, GDriveFile) {
-  //   $scope.gDriveFile = GDriveFile.get({fileId: 'appfolder'}, function (gDriveFile) {
-  //     console.log('received gDriveFile:', gDriveFile);
-  //   });
-  // }])
-
-  // .controller('DriveCtrl', ['$scope', 'loadDriveApi', function ($scope, loadDriveApi) {
-  //   $scope.printApplicationDataFolderMetadata = function () {
-  //     var request = gapi.client.drive.files.get({
-  //       'fileId': 'appfolder'
-  //     });
-  //     request.execute(function (resp) {
-  //       console.log('Id: ' + resp.id);
-  //       console.log('Title: ' + resp.title);
-  //     });
-  //   }
-  // }])
 
   .controller('SitesCtrl', ['$scope', 'getSites', function ($scope, getSites) {
     var promise = getSites;
