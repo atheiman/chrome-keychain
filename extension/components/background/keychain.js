@@ -8,9 +8,19 @@
   })
 
   .controller('GDriveCtrl', ['$scope', '$http', function ($scope, $http) {
-    var gDriveBaseURL = 'https://www.googleapis.com/drive/v2/files/'
-    var gDriveSimpleUploadURL = 'https://www.googleapis.com/upload/drive/v2/files?uploadType=media'
-    var gDriveMultipartUploadURL = 'https://www.googleapis.com/upload/drive/v2/files?uploadType=multipart'
+    /**
+     * Function to update data file
+     * Function to retrieve data file and load data from response
+     * Function to
+     *
+     */
+
+    var gDriveBaseURL = 'https://www.googleapis.com/drive/v2/files/';
+    var gDriveSimpleUploadURL = 'https://www.googleapis.com/upload/drive/v2/files?uploadType=media';
+    var gDriveMultipartUploadURL = 'https://www.googleapis.com/upload/drive/v2/files?uploadType=multipart';
+    var gDriveMetadataURL = 'https://www.googleapis.com/drive/v2/files';
+    var gDriveUploadURL = 'https://www.googleapis.com/upload/drive/v2/files/';
+
     var simpleRespHandler = function (resp) {
       console.log('resp received:', resp);
       $scope.resp = resp;
@@ -32,6 +42,31 @@
     };
 
     $scope.createDataFile = function () {
+      var metadata = {'title': 'chrome-keychain-app-data.json',
+                      'mimeType': 'application/json',
+                      'parents': [{'id': 'appfolder'}]}
+      var createPromise = $http.post(gDriveMetadataURL, metadata)
+      createPromise.then(simpleRespHandler, respErrorHandler);
+    }
+
+    $scope.updateDataFile = function (fileId) {
+      var data = {
+        'holy': 'fucking shit'
+      }
+      var updatePromise = $http.put(gDriveUploadURL + fileId + '?uploadType=media', data);
+      updatePromise.then(simpleRespHandler, respErrorHandler);
+    }
+
+    $scope.deleteDataFile = function (fileId) {
+      var deletePromise = $http.delete(gDriveBaseURL + fileId);
+      deletePromise.then(simpleRespHandler, respErrorHandler);
+    }
+
+    $scope.multipartCreateDataFile = function () {
+      // the multipart create functionality is probably not preferred.
+      // although it is slower to create the file with metadata in one request
+      // then update the file in a separate request, it is much simpler
+
       var boundary = '-------314159265358979323846';
       var delimiter = "\r\n--" + boundary + "\r\n";
       var close_delim = "\r\n--" + boundary + "--";
