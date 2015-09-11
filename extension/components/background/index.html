@@ -17,15 +17,18 @@
       <h1>Chrome Keychain</h1>
     </header>
 
-    <div class="container-fluid" ng-controller="GDriveCtrl">
+    <div class="container-fluid" ng-controller="GDriveCtrl" ng-init="fileId = 'appfolder'">
       <h2>Drive API Test</h2>
 
-      <p><button class="btn btn-default" ng-click="getAppFolder()">
-        Get 'appfolder' Metadata
+      <p><label for="fileId">File ID:</label>
+      <input id="fileId" type='text' ng-model="fileId" /></p>
+
+      <p><button class="btn btn-default" ng-click="getFileMetadata(fileId)">
+        Get '{{fileId}}' Metadata
       </button></p>
 
-      <p><button class="btn btn-default" ng-click="listAppFolder()">
-        List 'appfolder' Children
+      <p><button class="btn btn-default" ng-click="listFolder(fileId)">
+        List '{{fileId}}' Children
       </button></p>
 
       <p><button class="btn btn-default" ng-click="createDataFile()">
