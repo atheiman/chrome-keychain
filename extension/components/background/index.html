@@ -17,39 +17,26 @@
       <h1>Chrome Keychain</h1>
     </header>
 
-    <div class="container-fluid" ng-controller="GDriveCtrl" ng-init="fileId = 'appfolder'">
+    <div class="container-fluid" ng-controller="GDriveCtrl"
+         ng-init="key = 'some key'; value = 'some value';">
       <h2>Drive API Test</h2>
 
-      <p><label for="fileId">File ID:</label>
-      <input id="fileId" type='text' ng-model="fileId" /></p>
-
-      <p><button class="btn btn-default" ng-click="getFileMetadata(fileId)">
-        Get '{{fileId}}' Metadata
+      <p><button class="btn btn-default" ng-click="getData()">
+        Get data
       </button></p>
 
-      <p><button class="btn btn-default" ng-click="listFolder(fileId)">
-        List '{{fileId}}' Children
+      <p><input id="key" type='text' ng-model="k" />:
+      <input id="value" type='text' ng-model="v" /></p>
+
+      <p><button class="btn btn-default" ng-click="update(k, v)">
+        Update data: {"{{k}}": "{{v}}"}
       </button></p>
 
-      <p><button class="btn btn-default" ng-click="createDataFile()">
-        Create Data File
+      <p><button class="btn btn-default" ng-click="delete()">
+        Delete data file
       </button></p>
 
-      <p><button class="btn btn-default" ng-click="getDataFile()">
-        Get Data File
-      </button></p>
-
-      <p><button class="btn btn-default" ng-click="deleteDataFile(fileId)">
-        Delete '{{fileId}}' Data File
-      </button></p>
-
-      <p><button class="btn btn-default" ng-click="updateDataFile(fileId)">
-        Update '{{fileId}}' Data File
-      </button></p>
-
-
-
-      <pre>{{resp}}</pre>
+      <pre>{{pre}}</pre>
 
     </div>
 
@@ -76,7 +63,8 @@
     </div> <!-- /.container -->
 
     <script src="/assets/bower_components/angular/angular.min.js"></script>
-    <script src="/assets/js/services.js"></script>
+    <script src="/assets/js/common-services.js"></script>
+    <script src="/assets/js/google-drive-data-file.js"></script>
     <script src="keychain.js"></script>
   </body>
 </html>
