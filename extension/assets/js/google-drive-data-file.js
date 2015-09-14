@@ -41,7 +41,7 @@
       //   // don't wait for appfolder metadata resp (g api will redirect)
       //   return 'appfolder';
       // }
-    }
+    };
 
     this._createDataFile = function () {
       // returns http promise which holds data file metadata
