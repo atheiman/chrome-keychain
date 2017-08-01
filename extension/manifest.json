@@ -30,7 +30,7 @@
     "48": "/assets/img/keychain-48.png",
     "128": "/assets/img/keychain-128.png"
   },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArCYY+IRY19L3+T29yYSUBrKMtOM2mcdSVG0Eb9azR7VCbSiQ37wv7lRmvVK8UuNunBSfh0vL/JBy7dtNnEhdv8P/H0cMnF5eJ3vhXsnV9GRv04d8eVaHwqkeBiGIIl0r9cgo27ewwxlrJNiEGT/lz2z9JKvSGtXtsA7F8u6tCuNCWkjfPtoO0vldEufl3PBPYCcwDKeCW5sU+aR/PpNXQ12awGDll5P+5YZxa8yKXpGdLSSB3DNeVdujW3eKsVuaL9fvPBTuwJUTpyO5nwN1/ost31o2bWfr+rllqgUHDsiupAxKKatEsLFnPfCx9Y1qm1zDxauIHrWzeLkMMW8VCwIDAQAB",
+  "key": "****",
   "oauth2": {
     "client_id": "356903706044-nddlfnns17rkccubpmtvgt0jvq1ev8b1.apps.googleusercontent.com",
     "scopes": [
